@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>COMENTARIOS-PANTHEON</title>
+</head>
+<body>
+
+    <section class="comentarios">
+
+        <main class="comentarios__main">
+
+            <form class="comentarios__form" action="/post/cadastra_comentario" method="POST">
+
+                <div class="comentarios__input">
+                    <span>NOME</span>
+                    <input name="usuario" type="text" class="nome__input" autocomplete="off">
+                    <span>COMENTÁRIO</span>
+                    <input name="comentario" type="text" class="comentario__input" autocomplete="off">
+
+                    <div class="comentarios__button">
+                        <button name="comentario" class="comentarios__button">ENVIAR</button>
+                    </div> 
+                </div>
+
+                <div class="comentarios__visualizar">
+                    
+                </div>
+           
+            </form>
+
+        </main>  
+
+    </section>
+
+</body>
+</html>
