@@ -26,9 +26,14 @@
                     </div> 
                 </div>
 
-                <div class="comentarios__visualizar">
-                    
-                </div>
+                <section class="comentarios__visualizar">
+                        {% for mensagem in mensagem %}
+                        <div class="comentarios_nav__visualizar">
+                            <strong> O usuário: {{mensagem.usuario}} às {{mensagem.data_e_hora}}</strong>
+                            <p class="comentario_comentarios__visualizar"> Enviou a seguinte mensagem: {{mensagem.comentario}}</p>
+                        </div>                        
+                        {% endfor %}
+                </section>
            
             </form>
 

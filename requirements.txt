@@ -1,2 +1,2 @@
 flask
-mysql.connection
+mysql-connector-python
