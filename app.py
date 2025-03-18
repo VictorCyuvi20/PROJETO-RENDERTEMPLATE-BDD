@@ -22,5 +22,18 @@ def pagina_comentario():
 
     return redirect("/")
 
+@app.route("/delete/mensagem/<codigo>")
+def pagina_delete(codigo):
+    Mensagem.excluir_mensagen(codigo)
+    return redirect("/")
+
+@app.route("/put/like/mensagem/<codigo>")
+def pagina_like(codigo):
+
+    codigo = request.form.get("curtidas")
+
+    Mensagem.curtir_comentario(codigo)
+    return redirect("/")
+
 
 app.run(debug=True)

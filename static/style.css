@@ -74,8 +74,19 @@ body{
     background-color: var(--color-accent-dark);
     border-radius: 20px;
     justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .comentarios_nav__visualizar{
     padding: 10px;
     color: var(--color-secondary);
+}
+
+
+.btt_excluir{
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-family: sans-serif;
+    border-radius: 5px;
 }

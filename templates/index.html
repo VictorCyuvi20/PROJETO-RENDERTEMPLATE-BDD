@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>COMENTARIOS-PANTHEON</title>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
 
@@ -29,8 +30,11 @@
                 <section class="comentarios__visualizar">
                         {% for mensagem in mensagem %}
                         <div class="comentarios_nav__visualizar">
-                            <strong> O usuário: {{mensagem.usuario}} às {{mensagem.data_e_hora}}</strong>
-                            <p class="comentario_comentarios__visualizar"> Enviou a seguinte mensagem: {{mensagem.comentario}}</p>
+                            <strong> O usuário: {{mensagem.usuario}} no dia {{mensagem.data_hora}}</strong>
+                            <p class="comentario_comentarios__visualizar"> <strong>Enviou a seguinte mensagem: {{mensagem.comentario}}</strong></p>
+                            <a href="/delete/mensagem/{{mensagem.cod_comentario}}" class="btt_excluir">EXCLUIR</a>
+                            <a href="/put/like/mensagem/<codigo>" class="bttn__comentario-like" >👍 : </a>
+                            <button class="bttn__comentario-deslike" type="button">👎 : 0</button>
                         </div>                        
                         {% endfor %}
                 </section>

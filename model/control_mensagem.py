@@ -12,9 +12,9 @@ class Mensagem:
 
         cursor = conexao.cursor()
 
-        sql = """   INSERT INTO tb_comentarios_pantheon (data_e_hora, nome, comentario) VALUES (%s, %s, %s)"""
+        sql = """   INSERT INTO tb_comentarios (nome, data_hora, comentario) VALUES (%s, %s, %s)"""
 
-        valores = (data_hora, usuario, comentarios )
+        valores = (usuario, data_hora, comentarios )
 
         cursor.execute(sql, valores)
 
@@ -29,7 +29,7 @@ class Mensagem:
 
         cursor = conexao.cursor(dictionary=True)
 
-        sql = """   SELECT nome as usuario, comentario, data_e_hora from tb_comentarios_pantheon """
+        sql = """   SELECT nome as usuario, comentario, data_hora, cod_comentario from tb_comentarios"""
 
         cursor.execute(sql)
 
@@ -40,6 +40,31 @@ class Mensagem:
         conexao.close()
 
         return resultado
+    
+    def excluir_mensagen(codigo):
+        conexao = Conexao.criar_conexao()
+
+        cursor = conexao.cursor()
+
+        sql = """  DELETE from tb_comentarios WHERE cod_comentario =  %s;"""
+        valores = (codigo,)
+        cursor.execute(sql, valores)
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+    def curtir_comentario(like):
+        conexao = Conexao.criar_conexao()
+
+        cursor = conexao.cursor()
+
+        sql = """ SELECT curtidas from tb_comentarios WHERE cod_comentario = %s;"""
+
+        valores = (like,)
+        cursor.execute(sql, valores)
+        conexao.commit()
+        cursor.close()
+        conexao.close()
     
 
 
