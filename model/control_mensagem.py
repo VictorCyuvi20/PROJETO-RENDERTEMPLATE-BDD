@@ -29,9 +29,11 @@ class Mensagem:
 
         cursor = conexao.cursor(dictionary=True)
 
-        sql = """   SELECT nome as usuario, comentario, data_hora, cod_comentario from tb_comentarios"""
+        sql = """   SELECT nome as usuario, comentario, data_hora, cod_comentario, curtidas from tb_comentarios"""
 
         cursor.execute(sql)
+        
+        # conexao.commit()
 
         resultado = cursor.fetchall()
 
@@ -53,18 +55,31 @@ class Mensagem:
         cursor.close()
         conexao.close()
 
-    def curtir_comentario(like):
+    def curtir_comentario(codigo):
+            conexao = Conexao.criar_conexao()
+
+            cursor = conexao.cursor()
+
+            sql = """ UPDATE tb_comentarios SET curtidas = curtidas + 1 WHERE cod_comentario = %s;"""
+
+            valores = (codigo,)
+            cursor.execute(sql, valores)
+            conexao.commit()
+            cursor.close()
+            conexao.close()
+            
+    def desgosta_mensagem(codigo):
         conexao = Conexao.criar_conexao()
-
+        
         cursor = conexao.cursor()
-
-        sql = """ SELECT curtidas from tb_comentarios WHERE cod_comentario = %s;"""
-
-        valores = (like,)
+        
+        sql = """ UPDATE tb_comentarios SET curtidas = curtidas - 1 WHERE cod_comentario = %s;"""
+        
+        valores =  (codigo,)
         cursor.execute(sql, valores)
         conexao.commit()
         cursor.close()
         conexao.close()
-    
+
 
 

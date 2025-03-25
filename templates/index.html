@@ -33,8 +33,8 @@
                             <strong> O usuário: {{mensagem.usuario}} no dia {{mensagem.data_hora}}</strong>
                             <p class="comentario_comentarios__visualizar"> <strong>Enviou a seguinte mensagem: {{mensagem.comentario}}</strong></p>
                             <a href="/delete/mensagem/{{mensagem.cod_comentario}}" class="btt_excluir">EXCLUIR</a>
-                            <a href="/put/like/mensagem/<codigo>" class="bttn__comentario-like" >👍 : </a>
-                            <button class="bttn__comentario-deslike" type="button">👎 : 0</button>
+                            <a href="/put/like/mensagem/{{mensagem.cod_comentario}}" class="bttn__comentario-like" >👍 {{mensagem.curtidas}}: </a>
+                            <a href="/put/deslike/mensagem/{{mensagem.cod_comentario}}" class="bttn__comentario-like">👎 {{mensagem.curtidas}}</a>
                         </div>                        
                         {% endfor %}
                 </section>

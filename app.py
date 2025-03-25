@@ -3,6 +3,7 @@ import datetime
 import mysql.connector
 from data.conexao import Conexao
 from model.control_mensagem import Mensagem
+from model.cadastro_usuario import Usuario
 
 app = Flask(__name__)
 
@@ -30,10 +31,25 @@ def pagina_delete(codigo):
 @app.route("/put/like/mensagem/<codigo>")
 def pagina_like(codigo):
 
-    codigo = request.form.get("curtidas")
-
     Mensagem.curtir_comentario(codigo)
     return redirect("/")
+
+@app.route("/put/deslike/mensagem/<codigo>")
+def pagina_deslike(codigo):
+    
+    Mensagem.desgosta_mensagem(codigo)
+    return redirect("/")
+
+
+@app.route("/cadastro ", methods = ["POST"])
+def pagina_cadastra():
+    login = request.form.get("login")
+    nome = request.form.get("nome")
+    senha = request.form.get("senha")
+    
+    Usuario.cadastro_usuario(login, nome, senha)
+    return render_template("",)
+    
 
 
 app.run(debug=True)
