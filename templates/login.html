@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
-        <div class="input--nome"
-            ><input type="text" autocomplete="off" placeholder="Digite seu email...">
-        </div>
-        <div class="input--senha"
-            ><input type="text" autocomplete="off" placeholder="Digite sua senha...">
-        </div>
+        <form action="/login" method="GET">
 
-        <button>Entrar</button>
+            <div class="input--login"
+                ><input type="text" name="login" autocomplete="off" placeholder="Digite seu login...">
+            </div>
+            <div class="input--senha"
+                ><input type="text" name="senha" autocomplete="off" placeholder="Digite sua senha...">
+            </div>
+    
+            <button>Entrar</button>
+        </form>
 
 
 
-        <a href="">Não possui um cadastro? Clique aqui!</a>
+
+        <a href="/cadastro">Não possui um cadastro? Clique aqui!</a>
 </body>
 </html>

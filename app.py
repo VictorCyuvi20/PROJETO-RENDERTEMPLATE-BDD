@@ -9,9 +9,20 @@ app = Flask(__name__)
 
 @app.route("/")
 def pagina_principal():
-    mensagem = Mensagem.mostra_mensagens()
-    return render_template("index.html", mensagem = mensagem)
+    return render_template("login.html",)
 
+@app.route("/login")
+def pagina_loga():
+    login = request.form.get("login")
+    senha = request.form.get("senha")
+    Usuario.login_usuario(login, senha)
+    return redirect("/comentarios")
+
+@app.route("/comentarios")
+def pagina_coment():
+
+    mensagem = Mensagem.mostra_mensagens()
+    return render_template("index.html", mensagem_html = mensagem)
 
 @app.route("/post/cadastra_comentario", methods = ["POST"])
 def pagina_comentario():
@@ -41,14 +52,18 @@ def pagina_deslike(codigo):
     return redirect("/")
 
 
-@app.route("/cadastro ", methods = ["POST"])
+@app.route("/cadastro",)
+def pagina_cadastro():
+    return render_template("pagina-principal.html")
+    
+@app.route("/post/cadastro", methods = ["POST"])
 def pagina_cadastra():
     login = request.form.get("login")
     nome = request.form.get("nome")
     senha = request.form.get("senha")
     
     Usuario.cadastro_usuario(login, nome, senha)
-    return render_template("",)
+    return redirect("/cadastro")
     
 
 

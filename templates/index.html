@@ -28,7 +28,7 @@
                 </div>
 
                 <section class="comentarios__visualizar">
-                        {% for mensagem in mensagem %}
+                        {% for mensagem_html in mensagem %}
                         <div class="comentarios_nav__visualizar">
                             <strong> O usuário: {{mensagem.usuario}} no dia {{mensagem.data_hora}}</strong>
                             <p class="comentario_comentarios__visualizar"> <strong>Enviou a seguinte mensagem: {{mensagem.comentario}}</strong></p>
