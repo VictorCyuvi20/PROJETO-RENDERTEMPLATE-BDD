@@ -14,6 +14,23 @@
 
         <main class="comentarios__main">
 
+
+            <header>
+                <h2>SEJA BEM-VINDO {{session["nome_usuario"]}}! </h2>
+                
+                <section class="logoff">
+                    <div>
+                        <figure>
+                            <a href="/get/logoff"><img src="../static/img/logout.png" alt="SAIR"></a>
+                        </figure>
+                        
+                    </div>
+                </section>
+            </header>
+            
+
+
+
             <form class="comentarios__form" action="/post/cadastra_comentario" method="POST">
 
                 <div class="comentarios__input">
@@ -28,13 +45,16 @@
                 </div>
 
                 <section class="comentarios__visualizar">
-                        {% for mensagem_html in mensagem %}
+                        {% for mensagem in Mensagem %}
                         <div class="comentarios_nav__visualizar">
+                            <hr>
                             <strong> O usuário: {{mensagem.usuario}} no dia {{mensagem.data_hora}}</strong>
                             <p class="comentario_comentarios__visualizar"> <strong>Enviou a seguinte mensagem: {{mensagem.comentario}}</strong></p>
                             <a href="/delete/mensagem/{{mensagem.cod_comentario}}" class="btt_excluir">EXCLUIR</a>
                             <a href="/put/like/mensagem/{{mensagem.cod_comentario}}" class="bttn__comentario-like" >👍 {{mensagem.curtidas}}: </a>
-                            <a href="/put/deslike/mensagem/{{mensagem.cod_comentario}}" class="bttn__comentario-like">👎 {{mensagem.curtidas}}</a>
+                            <a href="/put/deslike/mensagem/{{mensagem.cod_comentario}}" class="bttn__comentario-like">👎 {{mensagem.deslike}}</a>
+                            <hr>
+                            
                         </div>                        
                         {% endfor %}
                 </section>

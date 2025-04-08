@@ -25,11 +25,12 @@ class Mensagem:
         conexao.close()
 
     def mostra_mensagens():
+        
         conexao = Conexao.criar_conexao()
 
         cursor = conexao.cursor(dictionary=True)
 
-        sql = """   SELECT nome as usuario, comentario, data_hora, cod_comentario, curtidas from tb_comentarios"""
+        sql = """SELECT nome as usuario, comentario, data_hora, cod_comentario, curtidas from tb_comentarios"""
 
         cursor.execute(sql)
         
@@ -80,6 +81,9 @@ class Mensagem:
         conexao.commit()
         cursor.close()
         conexao.close()
+
+
+
 
 
 

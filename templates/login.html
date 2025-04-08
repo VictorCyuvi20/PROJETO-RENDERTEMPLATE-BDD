@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles_login.css">
     <title>Login</title>
 </head>
 <body>
-        <form action="/login" method="GET">
+        <form action="/post/login" method="POST">
 
             <div class="input--login"
                 ><input type="text" name="login" autocomplete="off" placeholder="Digite seu login...">
             </div>
             <div class="input--senha"
-                ><input type="text" name="senha" autocomplete="off" placeholder="Digite sua senha...">
+                ><input type="password" name="senha" autocomplete="off" placeholder="Digite sua senha...">
             </div>
     
             <button>Entrar</button>

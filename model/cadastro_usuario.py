@@ -1,5 +1,7 @@
 import datetime
 from hashlib import sha256
+
+from flask import session
 from data.conexao import Conexao
 
 
@@ -23,14 +25,31 @@ class Usuario:
 
 
     def login_usuario(login, senha):
-        conexao = Conexao.criar_conexao()
-        cursor = conexao.cursor()
 
-        sql = """SELECT login, senha FROM tb_usuarios WHERE login = %s and binary senha = %s;"""
+
+        # CRIPTOGRAFANDO SENHA
+        senha = sha256(senha.encode()).hexdigest()
+
+        conexao = Conexao.criar_conexao()
+        cursor = conexao.cursor(dictionary = True)
+
+        sql = """SELECT login, nome FROM tb_usuarios WHERE login = %s and binary senha = %s;"""
 
         valores = (login, senha)
         cursor.execute(sql, valores)
-        resultado = cursor.fetchone
-        if resultado 
+        resultado = cursor.fetchone()
+
         cursor.close()
         conexao.close()
+         
+        if resultado:
+            session['usuario'] = resultado['login']
+            session['nome_usuario'] = resultado['nome']
+            return True 
+        else:
+            return False
+    
+    def logoff():
+        session.clear()
+            
+        

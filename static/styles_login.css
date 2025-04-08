@@ -1,0 +1,65 @@
+body {
+    font-family: sans-serif; /* Fonte padrão para o texto */
+    background: linear-gradient(135deg, #A020F0, #D8BFD8); /* Gradiente roxo para o fundo */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o fundo gradiente cubra toda a tela */
+  }
+  
+  .login-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra suave para o container */
+    text-align: center;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 22px); /* Ajusta a largura para o padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #D8BFD8; /* Borda roxa clara para os inputs */
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+    font-size: 16px;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    border-color: #A020F0; /* Borda roxa mais escura ao focar */
+    box-shadow: 0 0 5px rgba(160, 32, 240, 0.5); /* Sombra ao focar */
+  }
+  
+  button[type="submit"] {
+    background-color: #A020F0; /* Botão roxo */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #8A2BE2; /* Roxo um pouco mais escuro no hover */
+  }
+  
+  .signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .signup-link a {
+    color: #8A2BE2; /* Link roxo */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }

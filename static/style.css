@@ -16,10 +16,22 @@
     font-family: sans-serif;
 }
 
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-gradient-start);
+}
+
+
 body{
     background-color: var(--color-accent);
     padding: 15px;
     overflow: hidden;
+}
+img{
+    width: 50px;
+    height: 50px;
 }
 
 .comentarios__main{
@@ -34,13 +46,13 @@ body{
     padding: 1.5rem;
     gap: 1rem;
     overflow: hidden;  
-    background-image: url(../static/q5ghf61hrwf31.webp);
+    background-image: url(../static/img/q5ghf61hrwf31.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .comentarios__input {
-    /* max-width: 600px; */
+    max-width: 600px;
     width: 500px;
     margin: 0;
     display: flex;
@@ -76,10 +88,14 @@ body{
     justify-content: center;
     overflow-y: scroll;
     overflow-x: hidden;
+    
 }
 .comentarios_nav__visualizar{
     padding: 10px;
     color: var(--color-secondary);
+    display: flex;
+    justify-content: space-between;
+    border-color: var(--color-secondary);
 }
 
 
