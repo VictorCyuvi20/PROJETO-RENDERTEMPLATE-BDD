@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 import datetime
 import mysql.connector
 from data.conexao import Conexao
@@ -85,7 +85,17 @@ def pagina_cadastra():
     
     Usuario.cadastro_usuario(login, nome, senha)
     return redirect("/cadastro")
+
+
+@app.route("/api/get/mensgens")
+def api_mensagens():
+    mensagens = Mensagem.mostra_mensagens()
+    return jsonify(mensagens)
     
+@app.route("/api/get/lastmensagem/<usuario>")
+def api_ultimamensagem():
+    ultimamensagem = Mensagem.last_mensage(Usuario)
+    return jsonify(ultimamensagem)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)

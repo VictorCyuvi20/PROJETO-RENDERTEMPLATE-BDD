@@ -43,6 +43,23 @@ class Mensagem:
         conexao.close()
 
         return resultado
+    def last_mensage(usuario):
+        
+        conexao = Conexao.criar_conexao()
+
+        cursor = conexao.cursor(dictionary=True)
+
+        sql = """SELECT comentario from tb_comentarios where comentario =  %s ORDER BY comentario DESC """
+
+        valores = (usuario,)
+
+        cursor.execute(sql, valores)
+
+
+        resultado = cursor.fetchone()
+        conexao.close()
+
+        return resultado
     
     def excluir_mensagen(codigo):
         conexao = Conexao.criar_conexao()
